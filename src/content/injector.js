@@ -2,12 +2,12 @@
 const Logger = {
     log: (msg, data) => {
         // console.groupCollapsed deixa o console do F12 limpo, mas arquiva os dados se precisarmos debugar
-        console.groupCollapsed(`🛡️ AWS Border Guard: ${msg}`);
+        console.groupCollapsed(`🛡️ Don't Touch My Prod: ${msg}`);
         if (data) console.dir(data);
         console.groupEnd();
     },
     error: (msg, err) => {
-        console.group(`🚨 AWS Border Guard Error: ${msg}`);
+        console.group(`🚨 Don't Touch My Prod Error: ${msg}`);
         console.error(err);
         console.groupEnd();
     }

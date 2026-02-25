@@ -1,4 +1,4 @@
-# AWS Environment Border Guard 🛡️
+# Don't Touch My Prod 🛡️
 
 Extensão para navegadores (baseados em Chromium) projetada para aumentar a segurança operacional de engenheiros e desenvolvedores na AWS. Através de identificação visual inconfundível (uma borda colorida e etiqueta in-page), o profissional saberá instantaneamente em qual contexto (Dev, QA, Prod) está operando.
 

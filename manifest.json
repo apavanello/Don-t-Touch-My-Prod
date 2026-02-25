@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AWS Environment Border Guard",
+  "name": "Don't Touch My Prod",
   "version": "1.0.0",
   "description": "Adiciona alertas visuais (borda e badge) no AWS Console para prevenir ações destrutivas no ambiente errado.",
   "icons": {
