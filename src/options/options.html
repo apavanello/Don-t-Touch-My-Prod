@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AWS Border Guard - Opções</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FF9900" width="32" height="32">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <h1>AWS Border Guard</h1>
+      </div>
+      <p>Gerencie seus alertas visuais por Account ID</p>
+    </header>
+
+    <main class="card">
+      <section class="add-rule-section">
+        <h2>Adicionar Nova Regra</h2>
+        <form id="ruleForm" class="rule-form">
+          <div class="input-group">
+            <label for="accountId">ID da Conta (12 números)</label>
+            <input type="text" id="accountId" placeholder="ex: 123456789012" required pattern="\d{12}" maxlength="12">
+          </div>
+          <div class="input-group">
+            <label for="alias">Alias (Apelido)</label>
+            <input type="text" id="alias" placeholder="ex: Produção Principal" required maxlength="30">
+          </div>
+          <div class="input-group">
+            <label for="colorHex">Cor da Borda</label>
+            <input type="color" id="colorHex" value="#E53935" required>
+          </div>
+          <button type="submit" class="btn primary">Salvar Regra</button>
+        </form>
+      </section>
+
+      <section class="rules-list-section">
+        <h2>Suas Contas Mapeadas</h2>
+        <div class="table-container">
+          <table id="rulesTable">
+            <thead>
+              <tr>
+                <th>Account ID</th>
+                <th>Alias</th>
+                <th>Cor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="rulesBody">
+              <!-- JS -->
+            </tbody>
+          </table>
+          <div id="emptyState" class="empty-state" style="display: none;">
+            <p>Nenhuma conta cadastrada ainda. Adicione uma acima para ativar a borda na AWS.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="actions">
+        <button id="importBtn" class="btn secondary">Importar JSON</button>
+        <button id="exportBtn" class="btn secondary">Exportar JSON</button>
+        <input type="file" id="fileInput" accept=".json" style="display: none;">
+      </div>
+      <p class="status-msg" id="statusMessage"></p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

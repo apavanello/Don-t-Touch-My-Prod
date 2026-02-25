@@ -1,0 +1,30 @@
+name: Build and Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*' # Dispara o build quando uma tag 'vX.X.X' for criada.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Extension Zip
+        run: |
+          # Cria um diretório temporário para limpar os arquivos antes de zipar
+          mkdir aws-border-guard
+          cp -r src assets manifest.json README.md aws-border-guard/
+          cd aws-border-guard
+          zip -r ../aws-environment-border-guard.zip ./*
+          cd ..
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: aws-environment-border-guard.zip
+          generate_release_notes: true
